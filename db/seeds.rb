@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 Ranking.delete_all
-$redis.flushdb
+# $redis.flushdb
 
 rnd = Random.new(1234)
 
