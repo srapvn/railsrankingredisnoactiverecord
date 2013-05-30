@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  userid: 1
+  name: MyString
+  winpercentage: 1.5
+  level: 1
+  xp: 1
+  honor: MyString
+  military: 1
+
+two:
+  userid: 1
+  name: MyString
+  winpercentage: 1.5
+  level: 1
+  xp: 1
+  honor: MyString
+  military: 1

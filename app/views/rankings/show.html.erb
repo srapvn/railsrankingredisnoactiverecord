@@ -1,0 +1,40 @@
+<!-- <p id="notice"><%= notice %></p> -->
+
+<p>
+  <b>Userid:</b>
+  <%= @ranking.userid %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @ranking.name %>
+</p>
+
+<p>
+  <b>Winpercentage:</b>
+  <%= @ranking.winpercentage %>
+</p>
+
+<p>
+  <b>Level:</b>
+  <%= @ranking.level %>
+</p>
+
+<p>
+  <b>Xp:</b>
+  <%= @ranking.xp %>
+</p>
+
+<p>
+  <b>Honor:</b>
+  <%= @ranking.honor %>
+</p>
+
+<p>
+  <b>Military:</b>
+  <%= @ranking.military %>
+</p>
+
+
+<%= link_to 'Edit', edituser_url(userid: @ranking.userid) %> |
+<%= link_to 'Back', root_path %>

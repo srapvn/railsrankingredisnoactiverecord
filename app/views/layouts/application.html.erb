@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Railsranking</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top navbar-inverse">
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="/">The Ranking Service</a>
+      <ul class="nav">
+        <li class="active"><a href="/">Rankings</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+   <div class="row-fluid">
+      <div class="span8 offset1">
+         <% if flash[:notice] %>
+            <div id="notice"><span class="label label-warning"><h4><%= flash[:notice] %></h4></span></div>
+         <% end %>
+         <%= yield %>
+      </div>
+   </div>
+</div>
+
+<footer>
+  <div class="container">
+    Rails Ranking Service
+  </div>
+</footer>
+
+</body>
+</html>
