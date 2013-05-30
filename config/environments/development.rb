@@ -2,7 +2,7 @@ Railsranking::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
   #redis
-  ENV["REDISTOGO_URL"] = 'redis://redistogo:712e69263ebaaa8e314d11266c96639e@squawfish.redistogo.com:10098/'
+  ENV["REDISTOGO_URL"] = 'redis://redistogo:712e69263ebaaa8e314d11266c96639e@squawfish.redistogo.com:10098'
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
