@@ -35,3 +35,13 @@
 <br />
 
 <%= link_to 'New Ranking', newuser_url %>
+ <br />
+Top10:
+<% Ranking::SORTKEYS.each do |key| %>
+    <%= link_to key, "/top10/#{key}" %>  |
+<% end %>
+ <br />
+Myrank (user: 99):
+ <% Ranking::SORTKEYS.each do |key| %>
+    <%= link_to key, "/myrank/99/#{key}" %>  |
+<% end %>

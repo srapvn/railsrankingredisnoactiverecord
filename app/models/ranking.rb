@@ -40,7 +40,9 @@ class Ranking < ActiveRecord::Base
     ranking = $redis.hgetall(userid)
     ranking[:userid] = userid
     ranking = Ranking.new(ranking)
-    ranking.id = ranking.created_at = ranking.updated_at = 1 #set this for editting
+
+    # need to be set for more information if needed
+    # ranking.id = ranking.created_at = ranking.updated_at = 1
     ranking
   end
 

@@ -3,12 +3,15 @@ Railsranking::Application.routes.draw do
 
   root to: "rankings#index"
 
-  match ':userid' => 'rankings#show' , :constraints => {:userid => /\d+/}, as: :showuser
-  match ':userid/edit' => 'rankings#edit', as: :edituser
-  match 'top10/:key' => 'rankings#index', as: :top10
-  match 'myrank/:userid/:key' => 'rankings#index', as: :myrank
-  match ':userid/delete' => 'rankings#delete', as: :deleteuser
-  match 'new' => 'rankings#new', as: :newuser
+  get ':userid' => 'rankings#show' , :constraints => {:userid => /\d+/}, as: :showuser
+  get ':userid/edit' => 'rankings#edit', as: :edituser
+  get 'top10/:key' => 'rankings#index', as: :top10
+  get 'myrank/:userid/:key' => 'rankings#index', as: :myrank
+  delete ':userid/delete' => 'rankings#delete', as: :deleteuser
+  get 'new' => 'rankings#new', as: :newuser
+  put ':userid' => 'rankings#update', as: :updateuser
+  post '' => 'rankings#create', as: :createuser
+
   # match ':userid/:auth_key' => 'rankings#show', as: :showuser_with_auth_key
 
   # match ':userid/edit/:auth_key' => 'rankings#edit', as: :edituser_with_auth_key
