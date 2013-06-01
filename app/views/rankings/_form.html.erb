@@ -23,7 +23,7 @@
   </div>
 <div class="control-group">
     <%= f.label :winpercentage , class: "control-label" %>
-    <div class="controls"><%= f.text_field :winpercentage %></div>
+    <div class="controls"><%= f.number_field :winpercentage , :in => 0..100,  step: 0.1 %></div>
   </div>
 <div class="control-group">
     <%= f.label :level , class: "control-label" %>
@@ -31,11 +31,11 @@
   </div>
 <div class="control-group">
     <%= f.label :xp , class: "control-label" %>
-    <div class="controls"><%= f.number_field :xp %></div>
+    <div class="controls"><%= f.number_field :xp%></div>
   </div>
 <div class="control-group">
     <%= f.label :honor  , class: "control-label"%>
-    <div class="controls"><%= f.text_field :honor %></div>
+    <div class="controls"><%= f.number_field :honor %></div>
   </div>
 <div class="control-group">
     <%= f.label :military , class: "control-label" %>

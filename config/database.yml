@@ -24,10 +24,10 @@
 #   pool: 5
 #   timeout: 5000
 
-development:
-  adapter: postgresql
-  host: localhost
-  username: user
-  database: app-dev
+# development:
+#   adapter: postgresql
+#   host: localhost
+#   username: user
+#   database: app-dev
 
 

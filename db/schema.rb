@@ -11,18 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130529100320) do
+# ActiveRecord::Schema.define(:version => 20130529100320) do
 
-  create_table "rankings", :force => true do |t|
-    t.integer  "userid",                         :null => false
-    t.string   "name",                           :null => false
-    t.float    "winpercentage", :default => 0.0
-    t.integer  "level",         :default => 0
-    t.integer  "xp",            :default => 0
-    t.integer  "honor",         :default => 0
-    t.integer  "military",      :default => 0
-    t.datetime "created_at",                     :null => false
-    t.datetime "updated_at",                     :null => false
-  end
+#   create_table "rankings", :force => true do |t|
+#     t.integer  "userid",                         :null => false
+#     t.string   "name",                           :null => false
+#     t.float    "winpercentage", :default => 0.0
+#     t.integer  "level",         :default => 0
+#     t.integer  "xp",            :default => 0
+#     t.integer  "honor",         :default => 0
+#     t.integer  "military",      :default => 0
+#     t.datetime "created_at",                     :null => false
+#     t.datetime "updated_at",                     :null => false
+#   end
 
-end
+# end

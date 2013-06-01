@@ -72,7 +72,8 @@ class RankingsController < ApplicationController
         format.html { redirect_to root_path, notice: 'Ranking was successfully created/updated' }
         format.json { render json: @ranking, status: :created, location: @ranking }
       else
-        format.html { render action: "new" }
+        # format.html { render action: "edit" }
+        format.html { redirect_to edituser_url(userid: params[:ranking][:userid]), notice: 'Unvalid parameter(s)' }
         format.json { render json: @ranking.errors, status: :unprocessable_entity }
       end
     end

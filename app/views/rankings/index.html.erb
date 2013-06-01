@@ -16,8 +16,8 @@
   </tr>
 
 <% @rankings.each_with_index do |ranking, idx| %>
-  <tr <%= 'class = "success"'.html_safe if ranking[:userid] == @userid.to_i %>>
-    <td><%= ranking[:rank] %></td>
+  <tr <%= 'class = "success"'.html_safe if ranking.userid == @userid %>>
+    <td><%= ranking.rank %></td>
     <td><%= ranking.userid %></td>
     <td><%= ranking.name %></td>
     <td><%= ranking.winpercentage %></td>
