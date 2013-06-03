@@ -50,16 +50,10 @@ class RankingsController < ApplicationController
   # GET /new.json
   def new
     @ranking = Ranking.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @ranking }
-    end
   end
 
   # GET /1/edit
   def edit
-
   end
 
   # POST /
@@ -68,8 +62,8 @@ class RankingsController < ApplicationController
     rankinghash = params[:ranking]
 
     respond_to do |format|
-      if Ranking.save2redis rankinghash
-        format.html { redirect_to root_path, notice: 'Ranking was successfully created/updated' }
+      if Ranking.save2redis(rankinghash)
+        format.html { redirect_to root_path, notice: 'Ranking was successfully created/updated'}
         format.json { render json: @ranking, status: :created, location: @ranking }
       else
         # format.html { render action: "edit" }
@@ -88,10 +82,14 @@ class RankingsController < ApplicationController
   def destroy
     userid = params[:userid]
 
-    Ranking.destroy2redis(userid)
+    if Ranking.destroy2redis(userid) > 0
+      flash[:notice] = 'User was successfully deleted.'
+    else
+       flash[:notice] = 'Not successfully deleted.'
+    end
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: 'User was successfully deleted.'  }
+      format.html { redirect_to root_path }
       format.json { head :no_content }
     end
   end

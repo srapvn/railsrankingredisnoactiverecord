@@ -4,7 +4,7 @@ class Ranking
   extend ActiveModel::Naming
 
   ATTRS_ACCESSIBLE = [:userid, :name, :winpercentage, :level, :xp, :honor, :military]
-  attr_accessor *ATTRS_ACCESSIBLE, :rank
+  attr_accessor *ATTRS_ACCESSIBLE, :rank, :id
 
   validates_presence_of :name, :userid, :winpercentage, :level, :xp, :honor, :military
   validates_numericality_of :userid, only_integer:true, greater_than_or_equal_to: 0
@@ -18,10 +18,15 @@ class Ranking
     attributes.each do |name, value|
       send("#{name}=", value) if ATTRS_ACCESSIBLE.include? name.to_sym
     end
+    self.id = self.userid
   end
 
   def persisted?
-    false
+    if self.userid == 0
+      return false
+    else
+      true
+    end
   end
 
   SORTKEYS = ["xp", "winpercentage", "honor", "military"]
@@ -74,7 +79,6 @@ class Ranking
       if ranking.valid?
         userid = rankinghash.delete(:userid)
         $redis.mapped_hmset(userid, rankinghash)
-
         Ranking::SORTKEYS.each do |key|
             $redis.zadd(key, rankinghash[key.to_sym], userid)
         end
@@ -85,10 +89,10 @@ class Ranking
 
 
   def self.destroy2redis(userid)
-      $redis.del(userid)
       Ranking::SORTKEYS.each do |key|
           $redis.zrem(key, userid)
       end
+      $redis.del(userid)
   end
 
 end
